@@ -4,14 +4,16 @@ import Post from "./Post";
 import "./Feed.css";
 import db from "./firebase";
 import FlipMove from "react-flip-move";
+import data from "./data/posts.json";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(snapshot.docs.map((doc) => doc.data()))
-    );
+    // db.collection("posts").onSnapshot((snapshot) =>
+    //   setPosts(snapshot.docs.map((doc) => doc.data()))
+    // );
+    setPosts(data.posts);
   }, []);
 
   return (
